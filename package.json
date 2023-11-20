@@ -1,0 +1,51 @@
+{
+  "name": "skwash-server",
+  "version": "0.1.0",
+  "private": true,
+  "main": "main.ts",
+  "scripts": {
+    "pre-commit": "yarn test && npx lint-staged",
+    "start": "tsc && node dist/main.js",
+    "dev": "ts-node-dev --respawn -- src/main.ts",
+    "test": "jest --coverage --passWithNoTests",
+    "test:dev": "jest --watch --verbose",
+    "prettify": "prettier --write src/**/*.ts",
+    "lint": "eslint src/**/*.ts && prettier --check src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix"
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "eslint --fix",
+      "prettier --write -u"
+    ]
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "helmet": "^6.0.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.14",
+    "@types/helmet": "^4.0.0",
+    "@types/jest": "^29.2.0",
+    "@types/morgan": "^1.9.3",
+    "@types/node": "^18.11.5",
+    "@types/supertest": "^2.0.12",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.41.0",
+    "eslint": "^8.0.1",
+    "eslint-config-standard-with-typescript": "^23.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "jest": "^29.2.2",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "supertest": "^6.3.1",
+    "ts-jest": "^29.0.3",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "*"
+  }
+}
